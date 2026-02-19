@@ -1,37 +1,37 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { APITester } from "./APITester";
+import { useMemo } from "react";
+import { FileUpload } from "@/components/FileUpload";
+import { SearchReplace } from "@/components/SearchReplace";
+import { ChatView } from "@/components/ChatView";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { parseJSONL } from "@/lib/parser";
+import type { Replacement } from "@/types";
 import "./index.css";
 
-import logo from "./logo.svg";
-import reactLogo from "./react.svg";
-
 export function App() {
+  const [fileContent, setFileContent] = useLocalStorage<string>("logviewer-file", "");
+  const [fileName, setFileName] = useLocalStorage<string>("logviewer-filename", "");
+  const [replacements, setReplacements] = useLocalStorage<Replacement[]>("logviewer-replacements", []);
+
+  const entries = useMemo(() => {
+    if (!fileContent) return [];
+    try {
+      return parseJSONL(fileContent);
+    } catch {
+      return [];
+    }
+  }, [fileContent]);
+
+  const handleFileLoad = (content: string, name: string) => {
+    setFileContent(content);
+    setFileName(name);
+  };
+
   return (
-    <div className="container mx-auto p-8 text-center relative z-10">
-      <div className="flex justify-center items-center gap-8 mb-8">
-        <img
-          src={logo}
-          alt="Bun Logo"
-          className="h-36 p-6 transition-all duration-300 hover:drop-shadow-[0_0_2em_#646cffaa] scale-120"
-        />
-        <img
-          src={reactLogo}
-          alt="React Logo"
-          className="h-36 p-6 transition-all duration-300 hover:drop-shadow-[0_0_2em_#61dafbaa] [animation:spin_20s_linear_infinite]"
-        />
-      </div>
-      <Card>
-        <CardHeader className="gap-4">
-          <CardTitle className="text-3xl font-bold">Bun + React</CardTitle>
-          <CardDescription>
-            Edit <code className="rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono">src/App.tsx</code> and save to
-            test HMR
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <APITester />
-        </CardContent>
-      </Card>
+    <div className="container mx-auto p-4 max-w-4xl space-y-4">
+      <h1 className="text-xl font-bold">AI Studio Log Viewer</h1>
+      <FileUpload onFileLoad={handleFileLoad} currentFileName={fileName || undefined} />
+      <SearchReplace replacements={replacements} onReplacementsChange={setReplacements} />
+      <ChatView entries={entries} replacements={replacements} />
     </div>
   );
 }
