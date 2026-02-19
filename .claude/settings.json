@@ -10,9 +10,7 @@
     "additionalDirectories": ["../"],
     "allow": [
       "Bash(git:*)",
-      "Bash(npm:*)",
-      "Bash(npx:*)",
-      "Bash(node:*)",
+      "Bash(bun:*)",
       "Bash(gh:*)",
       "Bash(curl:*)",
       "Bash(timeout:*)",

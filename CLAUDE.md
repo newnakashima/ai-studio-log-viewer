@@ -4,6 +4,28 @@ globs: "*.ts, *.tsx, *.html, *.css, *.js, *.jsx, package.json"
 alwaysApply: false
 ---
 
+# AI Studio Log Viewer
+
+Google AI Studio の API ログ（JSONL形式）を会話形式で見やすく表示する GUI ツール。
+
+## プロジェクト構成
+
+- `src/index.ts` - Bun.serve() によるサーバーエントリポイント
+- `src/index.html` - HTML エントリポイント
+- `src/frontend.tsx` - React アプリのマウント
+- `src/App.tsx` - メインコンポーネント（状態管理・コンポーネント統合）
+- `src/types.ts` - LogEntry, Replacement の型定義
+- `src/lib/parser.ts` - JSONL パーサー、テキスト置換関数
+- `src/hooks/useLocalStorage.ts` - LocalStorage 永続化フック
+- `src/components/FileUpload.tsx` - ファイルアップロード UI
+- `src/components/SearchReplace.tsx` - 検索・置換 UI
+- `src/components/ChatView.tsx` - 会話形式表示 UI
+- `src/components/ui/` - shadcn/ui コンポーネント
+- `styles/globals.css` - Tailwind CSS v4 + shadcn/ui テーマ
+- `Dockerfile` - Cloud Run 向けマルチステージビルド
+
+## Bun ランタイム
+
 Default to using Bun instead of Node.js.
 
 - Use `bun <file>` instead of `node <file>` or `ts-node <file>`
