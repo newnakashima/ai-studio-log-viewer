@@ -51,7 +51,7 @@ export function ChatView({ entry, replacements }: ChatViewProps) {
                     }`}
                   >
                     <p className="text-xs font-medium mb-1 opacity-70">
-                      {isUser ? "ユーザー" : "モデル"}
+                      {isUser ? "ユーザー" : "AI"}
                     </p>
                     <div className="text-sm markdown-body">
                       <ReactMarkdown remarkPlugins={[remarkGfm]}>{transform(text)}</ReactMarkdown>
@@ -66,7 +66,7 @@ export function ChatView({ entry, replacements }: ChatViewProps) {
           {finalResponse && (
             <div className="flex justify-start">
               <div className="max-w-[80%] rounded-2xl px-4 py-2 bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800">
-                <p className="text-xs font-medium mb-1 text-green-700 dark:text-green-400">最終回答</p>
+                <p className="text-xs font-medium mb-1 text-green-700 dark:text-green-400">AI</p>
                 <div className="text-sm markdown-body">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>{transform(finalResponse)}</ReactMarkdown>
                 </div>

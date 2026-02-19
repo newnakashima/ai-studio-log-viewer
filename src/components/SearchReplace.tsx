@@ -27,7 +27,7 @@ export function SearchReplace({ replacements, onReplacementsChange }: SearchRepl
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-sm font-medium">検索・置換</CardTitle>
+        <CardTitle className="text-sm font-medium">置換</CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
         {replacements.map((r, i) => (

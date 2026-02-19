@@ -18,7 +18,7 @@ Google AI Studio の API ログ（JSONL形式）を会話形式で見やすく�
 - `src/lib/parser.ts` - JSONL パーサー、テキスト置換関数
 - `src/hooks/useLocalStorage.ts` - LocalStorage 永続化フック
 - `src/components/FileUpload.tsx` - ファイルアップロード UI
-- `src/components/SearchReplace.tsx` - 検索・置換 UI
+- `src/components/SearchReplace.tsx` - 置換 UI
 - `src/components/ChatView.tsx` - 会話形式表示 UI
 - `src/components/ui/` - shadcn/ui コンポーネント
 - `styles/globals.css` - Tailwind CSS v4 + shadcn/ui テーマ
