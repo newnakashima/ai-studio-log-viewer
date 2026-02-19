@@ -21,7 +21,7 @@ export function ChatView({ entry, replacements }: ChatViewProps) {
   const transform = (text: string) => applyReplacements(text, replacements);
   const time = new Date(entry.createTime).toLocaleString("ja-JP");
   const finalResponse = entry.response?.[entry.response.length - 1]
-    ?.candidates?.[0]?.content?.parts?.map(p => p.text).join("\n");
+    ?.candidates?.[0]?.content?.parts?.map(p => p.text).join("");
 
   return (
     <div className="space-y-6">
@@ -35,7 +35,7 @@ export function ChatView({ entry, replacements }: ChatViewProps) {
           {/* Conversation Messages */}
           <div className="space-y-3">
             {entry.request.contents.map((content, msgIndex) => {
-              const text = content.parts.map(p => p.text).join("\n");
+              const text = content.parts.map(p => p.text).join("");
               const isUser = content.role === "user";
 
               return (
