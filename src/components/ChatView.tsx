@@ -22,8 +22,6 @@ export function ChatView({ entries, replacements }: ChatViewProps) {
     <div className="space-y-6">
       {entries.map((entry, entryIndex) => {
         const time = new Date(entry.createTime).toLocaleString("ja-JP");
-        const systemPrompt = entry.request.systemInstruction?.parts
-          .map(p => p.text).join("\n");
         const finalResponse = entry.response?.[entry.response.length - 1]
           ?.candidates?.[0]?.content?.parts?.map(p => p.text).join("\n");
 
@@ -35,14 +33,6 @@ export function ChatView({ entries, replacements }: ChatViewProps) {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              {/* System Prompt */}
-              {systemPrompt && (
-                <div className="bg-muted/50 rounded-lg p-3 border">
-                  <p className="text-xs font-medium text-muted-foreground mb-1">システムプロンプト</p>
-                  <p className="text-sm whitespace-pre-wrap">{transform(systemPrompt)}</p>
-                </div>
-              )}
-
               {/* Conversation Messages */}
               <div className="space-y-3">
                 {entry.request.contents.map((content, msgIndex) => {
