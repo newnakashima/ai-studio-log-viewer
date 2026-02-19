@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { LogEntry, Replacement } from "@/types";
 import { applyReplacements } from "@/lib/parser";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface ChatViewProps {
   entries: LogEntry[];
@@ -54,7 +56,9 @@ export function ChatView({ entries, replacements }: ChatViewProps) {
                         <p className="text-xs font-medium mb-1 opacity-70">
                           {isUser ? "ユーザー" : "モデル"}
                         </p>
-                        <p className="text-sm whitespace-pre-wrap">{transform(text)}</p>
+                        <div className="text-sm markdown-body">
+                          <ReactMarkdown remarkPlugins={[remarkGfm]}>{transform(text)}</ReactMarkdown>
+                        </div>
                       </div>
                     </div>
                   );
@@ -66,7 +70,9 @@ export function ChatView({ entries, replacements }: ChatViewProps) {
                 <div className="flex justify-start">
                   <div className="max-w-[80%] rounded-2xl px-4 py-2 bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800">
                     <p className="text-xs font-medium mb-1 text-green-700 dark:text-green-400">最終回答</p>
-                    <p className="text-sm whitespace-pre-wrap">{transform(finalResponse)}</p>
+                    <div className="text-sm markdown-body">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{transform(finalResponse)}</ReactMarkdown>
+                    </div>
                   </div>
                 </div>
               )}
