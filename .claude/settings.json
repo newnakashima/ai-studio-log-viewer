@@ -1,0 +1,59 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "teammateMode": "tmux",
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "permissions": {
+    "additionalDirectories": ["../"],
+    "allow": [
+      "Bash(git:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(node:*)",
+      "Bash(gh:*)",
+      "Bash(curl:*)",
+      "Bash(timeout:*)",
+      "Bash(pkill:*)",
+      "Bash(docker:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:./*)",
+
+      "Bash(touch:*)",
+      "Bash(wc:*)",
+      "Bash(which:*)",
+      "Bash(pwd:*)",
+      "Bash(diff:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(chmod:./*)",
+      "Bash(file:*)",
+      "Bash(du:*)",
+      "Bash(stat:*)",
+      "Bash(sed:./*)",
+      "Bash(awk:*)",
+      "Bash(xargs:*)",
+      "Bash(jq:*)",
+      "Bash(tee:*)",
+      "Bash(tr:./*)",
+      "Bash(echo:*)",
+      "Read(./*)",
+      "Edit(./*)",
+      "Search(./*)",
+      "Write(./*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "Edit(.claude/skills/*)"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+# EditorConfig is awesome: https://editorconfig.org
+root = true
+
+[*.{js,jsx,ts,tsx,html,css,scss,less,json,md}]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+tab_width = 2
+max_line_length = 100
+
+[*.{ts,tsx,js,jsx}]
+indent_style = space
+indent_size = 2
+
+[*.{json,md}]
+trim_trailing_whitespace = false
+max_line_length = off
+
+[*.{html,css,scss,less}]
+indent_style = space
+indent_size = 2
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[Makefile]
+indent_style = tab
+trim_trailing_whitespace = false
+
+[*.sh]
+indent_style = tab
+trim_trailing_whitespace = false
+insert_final_newline = true
+
+[*.py]
+indent_style = space
+indent_size = 4
+
+# Binary files: don't touch
+[*.png]
+trim_trailing_whitespace = false
+
