@@ -73,7 +73,9 @@ export function App() {
         {/* Desktop Sidebar */}
         <aside className="hidden md:flex md:flex-col w-72 border-r shrink-0">
           <div className="px-4 py-3 border-b font-semibold text-sm">会話一覧</div>
-          {conversationList}
+          <div className="flex-1 overflow-hidden">
+            {conversationList}
+          </div>
         </aside>
 
         {/* Main Content */}
